@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages, Extension
 from os import path
 
-__version__ = '1.0'
+__version__ = '1.1'
 
 
 # Add Native Extensions
