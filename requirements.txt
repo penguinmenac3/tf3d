@@ -1,2 +1,2 @@
-numpy
-pyquaternion
+numpy>=1.19.0
+pyquaternion>=0.9.9
