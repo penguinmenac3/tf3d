@@ -23,6 +23,15 @@ class TestRTMatrix(unittest.TestCase):
         assert point.shape == (3,)
         assert np.allclose(point, solution, atol=1e-6), f"Matrix not same!\nFound:\n{self.Rt}\nShould be:\n{solution}"
 
+    def test_transform_direction(self):
+        point = np.array([1, 2, 3])
+        solution = np.array([1, -3, 2])
+        point = tf3d.transform_direction(self.Rt, point)
+
+        assert point.shape == (3,)
+        assert np.allclose(point, solution, atol=1e-6), f"Matrix not same!\nFound:\n{self.Rt}\nShould be:\n{solution}"
+
+
     def test_transform_multiple_points(self):
         points = np.random.rand(50, 3)
         solution = np.array([tf3d.transform(self.Rt, point) for point in points])

@@ -41,3 +41,11 @@ def transform(Rt: np.ndarray, point: np.ndarray) -> np.ndarray:
     else:
         homogenized = np.insert(point.T, 3, 1, axis=0)
         return Rt.dot(homogenized)[:3].T
+
+
+def transform_direction(Rt: np.ndarray, direction: np.ndarray) -> np.ndarray:
+    if direction.ndim == 1:
+        return R_from_Rt(Rt).dot(direction)
+    else:
+        homogenized = np.insert(direction.T, 3, 0, axis=0)
+        return Rt.dot(homogenized)[:3].T
